@@ -1,0 +1,17 @@
+{
+  "name": "@slobodafr/hive-database",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": {
+    "name": "Thomas SLOBODA",
+    "email": "thomas@sloboda.fr"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:SlobodaFR/hive-database.git"
+  },
+  "license": "ISC",
+  "description": "Hive database package"
+}
