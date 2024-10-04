@@ -1,0 +1,34 @@
+name: Publish
+on:
+  push:
+    branches:
+      - main
+jobs:
+  Publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install dependencies
+        run: npm install
+      - name: Migrate database
+        run: npm run apply -- --name={{ github.run_id }}
+      - name: Generate database package
+        run: npm run generate
+      - name: Build package
+        run: npm run build
+      - name: Bump version
+        run: npx semantic-release
+        env:
+          NPM_TOKEN: ${{ secrets.GH_PACKAGE_TOKEN }}

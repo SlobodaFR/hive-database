@@ -1,17 +1,32 @@
 {
   "name": "@slobodafr/hive-database",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {},
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && cp -r package.json ./dist",
+    "apply": "prisma generate dev",
+    "generate": "prisma generate"
+  },
   "keywords": [],
   "author": {
     "name": "Thomas SLOBODA",
     "email": "thomas@sloboda.fr"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:SlobodaFR/hive-database.git"
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "tag": "latest"
   },
   "license": "ISC",
-  "description": "Hive database package"
+  "description": "Hive database package",
+  "devDependencies": {
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^12.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.1",
+    "semantic-release": "^24.1.2",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "prisma": "^5.20.0"
+  }
 }
