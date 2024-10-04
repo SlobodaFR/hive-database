@@ -1,7 +1,7 @@
 {
   "name": "@slobodafr/hive-database",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "build": "tsc && cp -r package.json ./dist",
     "apply": "prisma generate dev",
@@ -27,6 +27,7 @@
     "typescript": "^5.6.2"
   },
   "dependencies": {
+    "@prisma/client": "^5.20.0",
     "prisma": "^5.20.0"
   }
 }
