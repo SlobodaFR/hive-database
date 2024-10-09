@@ -1,9 +1,11 @@
 {
   "name": "@slobodafr/hive-database",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "generated/index.js",
+  "types": "generated/index.d.ts",
+  "browser": "generated/index-browser.js",
   "scripts": {
-    "build": "tsc && cp -r package.json ./dist",
+    "build": "cp -r package.json ./dist",
     "apply": "prisma generate dev",
     "generate": "prisma generate"
   },
